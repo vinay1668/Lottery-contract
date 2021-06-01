@@ -44,7 +44,7 @@ contract lot{
     {
         require(msg.value >= 1 ether);      // ticket price
         balance += msg.value;               // add value to balance
-        uint ticket = _random() % numbers;  // random ticket number
+        uint ticket = 1;//_random() % numbers;  // random ticket number
         // ownerTickets[msg.sender][ticket]++; // add ticket to owner
         // ticketOwners[ticket][msg.sender]++; // add owner to ticket
         // myTickets[msg.sender].push(ticket); // add ticket for view function
@@ -62,17 +62,18 @@ contract lot{
              if(detailsByTicket[ticket].owners[i] == msg.sender) {   // checks if the person already bought that the same ticket number. if he did, his address will not be recorded again
                     check = true;
          }
+        }
         if(check == false){
              detailsByTicket[ticket].owners.push(payable(msg.sender));  // address is now recorded in owners of data struct
          }
 
 
         detailsByTicket[ticket].getWinners[msg.sender]++; // The count of that same ticket number is increased
-    }
+
 
     }
     function pickWinner() public adminOnly {
-        winningTicket = _random() % numbers;            // pick random winning ticket
+        winningTicket = 1;//_random() % numbers;            // pick random winning ticket
 
         // HELP: can I send winnings automatically here?
     }
