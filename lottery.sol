@@ -44,7 +44,7 @@ contract lot{
     {
         require(msg.value >= 1 ether);      // ticket price
         balance += msg.value;               // add value to balance
-        uint ticket = 1;//_random() % numbers;  // random ticket number
+        uint ticket = _random() % numbers;  // random ticket number
         // ownerTickets[msg.sender][ticket]++; // add ticket to owner
         // ticketOwners[ticket][msg.sender]++; // add owner to ticket
         // myTickets[msg.sender].push(ticket); // add ticket for view function
@@ -73,7 +73,7 @@ contract lot{
 
     }
     function pickWinner() public adminOnly {
-        winningTicket = 1;//_random() % numbers;            // pick random winning ticket
+        winningTicket = _random() % numbers;            // pick random winning ticket
 
         // HELP: can I send winnings automatically here?
     }
